@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using ExploradorJuegos.Services;
 using ExploradorJuegos.ViewModels;
+using ExploradorJuegos.Views;
 namespace ExploradorJuegos
 {
     public static class MauiProgram
@@ -24,6 +25,8 @@ namespace ExploradorJuegos
 #endif
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddTransient<DetalleJuegoViewModel>();
+            builder.Services.AddTransient<DetalleJuegoPage>();
             return builder.Build();
         }
     }

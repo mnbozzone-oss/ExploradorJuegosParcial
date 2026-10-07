@@ -43,13 +43,15 @@
             IsVisible="{Binding IsBusy}"
             HorizontalOptions="Center" />
 
-    <CollectionView
-            Grid.Row="4"
-            ItemsSource="{Binding Juegos}"
-            SelectionMode="None">   
-    
+        <CollectionView
+    Grid.Row="4"
+    ItemsSource="{Binding Juegos}"
+    SelectionMode="Single"
+    SelectedItem="{Binding JuegoSeleccionado, Mode=TwoWay}"
+    SelectionChangedCommand="{Binding VerDetalleCommand}">
 
-   <CollectionView.ItemTemplate>
+
+            <CollectionView.ItemTemplate>
         <DataTemplate x:DataType="models:Juego">
             <Border
                    Padding="12"

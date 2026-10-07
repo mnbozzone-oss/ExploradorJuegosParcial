@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ExploradorJuegos.Views.DetalleJuegoPage"
+    Title="Detalle del juego"
+    xmlns:viewmodels="clr-namespace:ExploradorJuegos.ViewModels"
+    x:DataType="viewmodels:DetalleJuegoViewModel">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+
+          <Label
+                Text="{Binding Juego.Nombre}"
+                FontSize="26"
+                FontAttributes="Bold" />
+
+             <Label
+                Text="Género"
+                FontAttributes="Bold" />
+
+           <Label
+                Text="{Binding Juego.Genero}"
+                FontSize="16" />
+
+           <Label
+                Text="Plataforma"
+                FontAttributes="Bold" />
+
+           <Label
+                Text="{Binding Juego.Plataforma}"
+                FontSize="16" />
+
+           <Label
+                Text="Descripción"
+                FontAttributes="Bold" />
+
+           <Label
+                Text="{Binding Juego.Descripcion}"
+                FontSize="16" />
+
+           <Label
+                Text="Página del juego"
+                FontAttributes="Bold" />
+
+            <Label
+                Text="{Binding Juego.Url}"
+                FontSize="14"
+                LineBreakMode="CharacterWrap" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+    
+    
