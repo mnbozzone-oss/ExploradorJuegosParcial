@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-
+using ExploradorJuegos.Services;
 namespace ExploradorJuegos
 {
     public static class MauiProgram
@@ -14,9 +14,12 @@ namespace ExploradorJuegos
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+            builder.Services.AddHttpClient<IApiService, ApiService>(client =>
+            {
+                client.Timeout = TimeSpan.FromSeconds(30);
+            });
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
