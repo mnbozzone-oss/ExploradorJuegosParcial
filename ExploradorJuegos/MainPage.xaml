@@ -23,6 +23,10 @@
             <Label
                 Text="Descubrí juegos gratuitos para PC y navegador."
                 FontSize="14" />
+            <Label
+    Text="Datos de FreeToGame · www.freetogame.com"
+    FontSize="12" />
+
         </VerticalStackLayout>
 
 

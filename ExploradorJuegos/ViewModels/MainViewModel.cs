@@ -110,27 +110,27 @@ public class MainViewModel : BaseViewModel
 
             Mensaje = codigo switch
             {
-                400 => "Error HTTP 400: la solicitud no es válida.",
-                404 => "Error HTTP 404: no se encontró el recurso.",
-                >= 500 => $"Error HTTP {codigo}: el servidor está fallando.",
-                _ => $"La API respondió con un error HTTP {codigo}."
+                400 => "No se pudo procesar la solicitud. Intentá nuevamente. (HTTP 400)",
+                404 => "No se encontró la información solicitada. (HTTP 404)",
+                >= 500 => $"El servidor tiene un problema. Intentá más tarde. (HTTP {codigo})",
+                _ => $"No se pudieron cargar los juegos. Intentá nuevamente. (HTTP {codigo})"
             };
         }
         catch (HttpRequestException)
         {
-            Mensaje = "No pudimos conectar con la API. Revisá tu conexión.";
+            Mensaje = "No se pudieron cargar los juegos. Revisá tu conexión a internet e intentá nuevamente.";
         }
         catch (TaskCanceledException)
         {
-            Mensaje = "La consulta tardó demasiado. Intentá nuevamente.";
+            Mensaje = "La carga tardó demasiado. Intentá nuevamente.";
         }
         catch (JsonException)
         {
-            Mensaje = "No pudimos interpretar los datos de la API.";
+            Mensaje = "La información recibida no tiene el formato esperado. Intentá más tarde.";
         }
         catch (Exception)
         {
-            Mensaje = "Ocurrió un error inesperado al cargar los juegos.";
+            Mensaje = "No se pudieron cargar los juegos. Intentá nuevamente.";
         }
         finally
         {
